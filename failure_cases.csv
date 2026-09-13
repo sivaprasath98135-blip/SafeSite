@@ -1,0 +1,6 @@
+case,image,failure_label,type,class,confidence,iou,reason
+1,005304_jpg.rf.b9669bca89a84d84a04080a275fe4311.jpg,Person detection failure,false_negative,person,,0.0,Missed person ground-truth object
+2,005332_jpg.rf.2daa87e6fe3f78d1f722179eb72fdc6e.jpg,Helmet detection failure,false_negative,helmet,,0.0,Missed helmet ground-truth object
+3,005435_jpg.rf.2543fe45bf8e123be3fae36607b23c49.jpg,Head detection failure,false_negative,head,,0.0,Missed head ground-truth object
+4,005526_jpg.rf.4ad9acabcfacadd60ab51de611d12e86.jpg,False positive detection,false_positive,helmet,0.8784814476966858,0.8916038739439265,Predicted helmet without a matched GT box
+5,005813_jpg.rf.9e4f8cd6ecebf6464e555350ca09da50.jpg,Localization error,localization_error,helmet,0.920065701007843,0.7426522890005304,Prediction matched the correct class but had low IoU
