@@ -32,6 +32,7 @@ https://github.com/sivaprasath98135-blip/SafeSite/releases/tag/v1.0
 
 ## 2. Dataset
 
+The source dataset was obtained from the Roboflow Hard Hat Workers project.
 The final cleaned dataset contains three classes:
 
 ```text
