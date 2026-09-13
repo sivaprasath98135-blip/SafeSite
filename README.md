@@ -123,6 +123,74 @@ POST /ask
 Accepts an image and a question. The API supports simple intents for helmet, person/worker, head, and general safety questions.
 
 ---
+## 5.1 Example API Usage
+
+### `/detect`
+
+Example request:
+
+```bash
+curl -X POST "http://localhost:8000/detect" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@example.jpg"
+Example response:
+
+```json
+{
+  "filename": "example.jpg",
+  "image_width": 640,
+  "image_height": 480,
+  "detection_count": 2,
+  "counts": {
+    "head": 1,
+    "helmet": 1,
+    "person": 0
+  },
+  "detections": [
+    {
+      "class_id": 1,
+      "class_name": "helmet",
+      "confidence": 0.91,
+      "bbox": [120.0, 80.0, 220.0, 180.0]
+    }
+  ]
+}
+
+
+
+```
+### `/ask`
+
+Example request:
+
+```bash
+curl -X POST "http://localhost:8000/ask" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "question=Are there any helmets?" \
+  -F "file=@example.jpg"
+Example response:
+
+```json
+{
+  "question": "Are there any helmets?",
+  "intent": "helmet_check",
+  "answer": "I detected 1 helmet detection in the image.",
+  "counts": {
+    "head": 1,
+    "helmet": 1,
+    "person": 0
+  },
+  "detections": []
+}
+
+### Important
+
+These are **example responses only**. The numbers are illustrative; we're not claiming that this exact image produced those results.
+
+After the `/ask` example, your existing:
+
 
 ## 6. Running the API
 
