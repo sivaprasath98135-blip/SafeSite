@@ -2,6 +2,7 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException, Form
 from fastapi.responses import JSONResponse
 from ultralytics import RTDETR
+from openai import OpenAI
 from PIL import Image
 import tempfile
 import os
