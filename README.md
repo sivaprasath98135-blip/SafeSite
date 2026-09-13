@@ -26,13 +26,9 @@ The project demonstrates an end-to-end computer-vision workflow:
 6. REST API deployment
 7. Safety-oriented response logic
 
-The trained model is stored at:
+The trained RT-DETR-L `best.pt` weights are available in the GitHub Release:
 
-```text
-weights/best.pt
-```
-
----
+https://github.com/sivaprasath98135-blip/SafeSite/releases/tag/v1.0
 
 ## 2. Dataset
 
