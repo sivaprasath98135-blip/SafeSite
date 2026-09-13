@@ -107,6 +107,7 @@ Available endpoints:
 - POST /ask — accepts an image and a natural-language question. A simple intent-routing layer interprets questions related to helmets, workers/persons, heads, safety/compliance, or general detections and returns a structured answer together with the detections.
 
 The API downloads the trained best.pt checkpoint from the GitHub Release v1.0 on first startup and loads it locally.
+Insufficient-information example: If /ask is asked whether a worker is helmet-compliant but no person detections are found, the system does not make a safety determination. It responds that worker helmet compliance cannot be reliably assessed from the detector output.
 
 ## 8. Safety and Reliability Considerations
 SafeSite is a computer-vision assistance system and should not be treated as a replacement for trained safety personnel, site procedures, or certified protective-equipment inspection.
