@@ -275,8 +275,9 @@ SafeSite/
 ├── app.py
 ├── requirements.txt
 ├── weights/
-│   ├── best.pt
-│   └── last.pt
+│   ├── GitHub Release v1.0/
+    ├── best.pt
+│   
 ├── failure_cases/
 │   ├── failure_case_1.jpg
 │   ├── failure_case_2.jpg
