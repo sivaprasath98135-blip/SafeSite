@@ -3,7 +3,7 @@ from ultralytics import RTDETR
 
 PROJECT_ROOT = Path("/kaggle/working/SafeSite")
 DATA_YAML = Path("/kaggle/working/Hard-Hat-Workers-Clean/data.yaml")
-WEIGHTS = PROJECT_ROOT / "weights" / "best.pt"
+WEIGHTS = PROJECT_ROOT / "rtdetr_training_repro" / "run" / "weights" / "best.pt"
 OUTPUT = PROJECT_ROOT / "test_evaluation_repro"
 
 print("Loading trained RT-DETR model...")
