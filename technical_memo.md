@@ -77,26 +77,31 @@ Five representative failure cases were selected programmatically from the test p
 Image: 005304_jpg.rf.b9669bca89a84d84a04080a275fe4311.jpg
 
 A ground-truth person instance was not matched by a prediction. This represents a false-negative detection for the person class.
+Root cause: The person class is sparsely represented in the test annotations, and the missed detection indicates the model has difficulty detecting some person instances.
 
 ### Case 2 — Missed Helmet
 Image: 005332_jpg.rf.2daa87e6fe3f78d1f722179eb72fdc6e.jpg
 
 A ground-truth helmet instance was missed by the detector. This demonstrates that helmet detection can still fail in individual image conditions despite strong overall helmet metrics.
+Root cause: The missed helmet indicates a false negative under the specific visual conditions of this test image; small, occluded, or visually ambiguous helmet regions are plausible failure modes.
 
 ### Case 3 — Missed Head
 Image: 005435_jpg.rf.2543fe45bf8e123be3fae36607b23c49.jpg
 
 A ground-truth head instance was not matched by a prediction. This represents a false-negative head detection.
+Root cause: The missed head is a false negative showing that head detection can fail under particular visual conditions, despite strong aggregate head-class performance.
 
 ### Case 4 — Unmatched/Duplicate Helmet Detection
 Image: 005526_jpg.rf.4ad9acabcfacadd60ab51de611d12e86.jpg
 
 A helmet prediction with confidence approximately 0.8785 was not matched under the selected matching procedure. The prediction had a high overlap of approximately 0.8916 with a nearby ground-truth helmet, so this case is more accurately described as an unmatched or duplicate-style detection around an existing helmet rather than a completely nonexistent helmet.
+Root cause: The prediction has high overlap with an existing ground-truth helmet, so the failure is likely related to duplicate or unmatched predictions around the same object rather than a completely missed helmet.
 
 ### Case 5 — Helmet Localization Error
 Image: 005813_jpg.rf.9e4f8cd6ecebf6464e555350ca09da50.jpg
 
 A helmet prediction had confidence approximately 0.9201 and IoU approximately 0.7427 with the corresponding ground-truth object. Because this is below the 0.75 IoU threshold used in the failure analysis, it was classified as a localization error.
+Root cause: The prediction has substantial overlap with the ground-truth helmet but falls below the 0.75 IoU threshold, indicating imperfect bounding-box localization around the object.
 
 ## 7. API Architecture
 SafeSite exposes the trained detector through FastAPI.
