@@ -26,7 +26,7 @@ results = model.train(
     batch=BATCH,
     project=str(PROJECT),
     name="run",
-    device=0,
+    device=[0, 1],,
 )
 
 print("=" * 60)
