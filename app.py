@@ -170,6 +170,27 @@ async def ask(
     question: str = Form(...),
     file: UploadFile = File(...)
 ):
+        q = question.lower().strip()
+
+    image_related_terms = [
+        "helmet", "hard hat", "hardhat",
+        "person", "worker", "people",
+        "head", "safe", "safety",
+        "violation", "compliance"
+    ]
+
+    if not any(term in q for term in image_related_terms):
+        return {
+            "question": question,
+            "intent": "unrelated_question",
+            "answer": (
+                "This question is outside the image-detection capabilities "
+                "of SafeSite, so the detection model was not called."
+            ),
+            "counts": {},
+            "detections": [],
+            "note": "No image detection was required for this question."
+        }
     """
     Answer a simple safety question using detections
     from the uploaded image.
