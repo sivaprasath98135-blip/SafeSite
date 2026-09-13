@@ -1,0 +1,39 @@
+SafeSite Submission
+==================
+
+Model:
+RT-DETR-L
+
+Classes:
+head
+helmet
+person
+
+Training:
+20 epochs
+Image size: 640
+Batch size: 8
+Devices: 2 x Tesla T4
+
+Test metrics:
+Precision: 0.6102
+Recall: 0.6622
+mAP@50: 0.6662
+mAP@50-95: 0.4692
+
+API:
+GET /health
+POST /detect
+POST /ask
+
+Primary checkpoint:
+weights/best.pt
+
+Documentation:
+README.md
+technical_memo.md
+
+Note:
+One test image was excluded from Ultralytics evaluation because of incompatible
+mixed segmentation/detection annotation content. Reported test metrics are
+therefore based on 705 usable test images.
