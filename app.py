@@ -213,6 +213,29 @@ async def ask(
         )
 
     detections, image_size = run_detection(image_bytes)
+        reasoning_response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are the SafeSite reasoning layer. "
+                    "Answer the user's question using only the detector "
+                    "results provided. If the results are insufficient, "
+                    "say 'insufficient information' rather than guessing."
+                )
+            },
+            {
+                "role": "user",
+                "content": (
+                    f"Question: {question}\n"
+                    f"Detector counts: {summarize_detections(detections)}\n"
+                    f"Detections: {detections}"
+                )
+            }
+        ],
+        temperature=0
+    )
     counts = summarize_detections(detections)
 
     q = question.lower().strip()
@@ -299,7 +322,7 @@ async def ask(
     return {
         "question": question,
         "intent": intent,
-        "answer": answer,
+        "answer": reasoning_response.choices[0].message.content,
         "counts": counts,
         "detections": detections,
         "note": (
