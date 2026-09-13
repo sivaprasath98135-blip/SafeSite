@@ -293,8 +293,7 @@ SafeSite/
 ---
 
 ## 10. Reproducibility
-
-The final model weights are included in `weights/`.
+The final model weights are available as the best.pt asset in GitHub Release v1.0.
 
 The cleaned dataset configuration is stored in:
 
