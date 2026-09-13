@@ -43,7 +43,7 @@ The trained model contains approximately 31.99 million parameters and requires a
 
 Training completed in approximately 1.382 hours.
 
-The best checkpoint is stored at SafeSite/weights/best.pt and the final checkpoint is stored at SafeSite/weights/last.pt.
+The best RT-DETR-L checkpoint is provided as the best.pt asset in the GitHub Release v1.0.
 
 ## 5. Evaluation
 Validation metrics:
@@ -106,7 +106,7 @@ Available endpoints:
 - POST /detect — accepts an uploaded image and returns detected objects, confidence scores, bounding boxes, image dimensions, and class counts.
 - POST /ask — accepts an image and a natural-language question. A simple intent-routing layer interprets questions related to helmets, workers/persons, heads, safety/compliance, or general detections and returns a structured answer together with the detections.
 
-The API loads the trained best.pt checkpoint from the SafeSite weights directory.
+The API downloads the trained best.pt checkpoint from the GitHub Release v1.0 on first startup and loads it locally.
 
 ## 8. Safety and Reliability Considerations
 SafeSite is a computer-vision assistance system and should not be treated as a replacement for trained safety personnel, site procedures, or certified protective-equipment inspection.
@@ -118,7 +118,7 @@ Predictions should therefore be interpreted as decision-support information rath
 ## 9. Reproducibility
 The project directory contains the trained model checkpoints, API implementation, dependency list, README documentation, technical memo, prediction contact sheet, failure-case images, and training artifacts.
 
-The primary trained checkpoint is SafeSite/weights/best.pt.
+The primary trained checkpoint is provided as the best.pt asset in the GitHub Release v1.0.
 
 Required Python dependencies are listed in SafeSite/requirements.txt.
 
