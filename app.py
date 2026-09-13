@@ -31,6 +31,7 @@ app = FastAPI(
 
 # Load model once when the server starts.
 MODEL_FILE = "/tmp/best.pt"
+client = OpenAI()
 
 if not os.path.exists(MODEL_FILE):
     urllib.request.urlretrieve(MODEL_PATH, MODEL_FILE)
