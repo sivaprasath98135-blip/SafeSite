@@ -198,6 +198,8 @@ After the `/ask` example, your existing:
 Install dependencies:
 
 ```bash
+Set the OpenAI API key before starting the API:
+export OPENAI_API_KEY="your_api_key_here"
 pip install -r requirements.txt
 ```
 
