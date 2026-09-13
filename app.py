@@ -170,7 +170,7 @@ async def ask(
     question: str = Form(...),
     file: UploadFile = File(...)
 ):
-        q = question.lower().strip()
+    q = question.lower().strip()
 
     image_related_terms = [
         "helmet", "hard hat", "hardhat",
