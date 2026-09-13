@@ -6,12 +6,13 @@ from PIL import Image
 import tempfile
 import os
 import io
+import urllib.request
 
 # ============================================================
 # SafeSite API
 # ============================================================
 
-MODEL_PATH = "/kaggle/working/SafeSite/weights/best.pt"
+MODEL_PATH = "https://github.com/sivaprasath98135-blip/SafeSite/releases/download/v1.0/best.pt"
 
 CLASS_NAMES = {
     0: "head",
@@ -28,7 +29,12 @@ app = FastAPI(
 )
 
 # Load model once when the server starts.
-model = RTDETR(MODEL_PATH)
+MODEL_FILE = "/tmp/best.pt"
+
+if not os.path.exists(MODEL_FILE):
+    urllib.request.urlretrieve(MODEL_PATH, MODEL_FILE)
+
+model = RTDETR(MODEL_FILE)
 
 
 def run_detection(image_bytes: bytes):
